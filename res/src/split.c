@@ -1,4 +1,4 @@
-#include "ud_string.h"
+#include "ud_string_array.h"
 
 ud_arr                      *ud_stra_split(ud_arr *str, char *sep)
 {
@@ -7,7 +7,7 @@ ud_arr                      *ud_stra_split(ud_arr *str, char *sep)
     else if (!((char*)str->val) || !*((char*)str->val)) return ud_stra_dup(str);
     else if (!sep || !*sep) ud_ut_error("separator can't be null");
     size_t              split_len   = 0;
-    size_t              sep_len     = ud_ut_byte_len(sep);
+    size_t              sep_len     = ud_str_len(sep);
     char                *val        = (char*)str->val;
     ud_str_split_len    *begin      = ud_str_split_get_len(val, sep, &split_len);
     if (!split_len)     return ud_stra_dup(str); 

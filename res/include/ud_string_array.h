@@ -10,11 +10,7 @@
 # define ud_stra_dup(str)       ud_stra_ndup(str, 0)
 # define ud_stra_fdup(str)      ud_stra_fndup(str, 0)
 
-// Structures
-typedef struct                  uds_str_split_len {
-    size_t                      len;
-    struct uds_str_split_len    *next;
-}                               ud_str_split_len;        
+// Structures  
 
 // Prototypes
 int                             ud_stra_chr(ud_arr *str, char c);

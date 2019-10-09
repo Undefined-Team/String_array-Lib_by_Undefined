@@ -1,4 +1,4 @@
-#include "ud_string.h"
+#include "ud_string_array.h"
 
 int     ud_stra_chr(ud_arr *str, char c)
 {
