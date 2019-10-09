@@ -1,8 +1,8 @@
 #include "ud_string_array.h"
 
-ud_arr  *ud_stra_join(ud_arr *head, ud_arr *tail)
+ud_arr_char_a  *ud_stra_join(ud_arr_char_a *head, ud_arr_char_a *tail)
 {
-    ud_arr  *join;
+    ud_arr_char_a  *join;
 
     if (!head) ud_ut_error("Null array provided as first argument.");
     else if (!tail) ud_ut_error("Null array provided as second argument.");

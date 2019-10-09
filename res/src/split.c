@@ -1,6 +1,6 @@
 #include "ud_string_array.h"
 
-ud_arr                      *ud_stra_split(ud_arr *str, char *sep)
+ud_arr_char_a                      *ud_stra_split(ud_arr_char_a *str, char *sep)
 {
     if (!str) ud_ut_error("Null array provided as first argument.");
     else if (str->type_s != sizeof(char)) ud_ut_error("str argument must be an array of char");
@@ -11,8 +11,8 @@ ud_arr                      *ud_stra_split(ud_arr *str, char *sep)
     char                *val        = (char*)str->val;
     ud_str_split_len    *begin      = ud_str_split_get_len(val, sep, &split_len);
     if (!split_len)     return ud_stra_dup(str); 
-    ud_arr              *new_arr    = ud_arr_init(0, split_len);
-    ud_arr              **arr_val   = (ud_arr**)new_arr->val;
+    ud_arr_char_a       *new_arr    = ud_arr_init(0, split_len);
+    ud_arr_char_a       **arr_val   = (ud_arr_char_a**)new_arr->val;
     char                *arr_str;
     for (ud_str_split_len *tmp = begin->next; tmp; tmp = tmp->next)
     {

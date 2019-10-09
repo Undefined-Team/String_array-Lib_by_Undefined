@@ -1,6 +1,6 @@
 #include "ud_string_array.h"
 
-ud_arr  *ud_stra_escape(ud_arr *str)
+ud_arr_char_a  *ud_stra_escape(ud_arr_char_a *str)
 {
     if (!str->val || str->len == 0)
         return str;
