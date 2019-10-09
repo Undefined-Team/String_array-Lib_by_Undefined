@@ -20,8 +20,12 @@ ud_arr  *ud_stra_vjoin_ctr(size_t args_len, char *sep, ...)
     for (ud_ut_count i = 0; i < args_len; ++i)
     {
         ud_mem_cpy(t_join_val, args[i], len[i]);
-        if (i < args_len - 1) ud_mem_cpy(t_join_val, sep, sep_len);
-        t_join_val += len[i] + sep_len;
+        t_join_val += len[i];
+        if (i < args_len - 1)
+        {
+            ud_mem_cpy(t_join_val, sep, sep_len);
+            t_join_val += sep_len;
+        }
     }
     va_end(va);
     return join;
