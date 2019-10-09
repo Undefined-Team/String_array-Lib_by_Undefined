@@ -27,6 +27,6 @@ ud_arr                              *ud_stra_join(ud_arr *head, ud_arr *tail);
 ud_arr                              *ud_stra_sub(ud_arr *str, size_t start, size_t len);
 size_t                              ud_stra_len(ud_arr *str);
 ud_arr                              *ud_stra_split(ud_arr *str, char *sep);
-ud_arr                              *ud_stra_vjoin_ctr(size_t args_len, ...);
+ud_arr                              *ud_stra_vjoin_ctr(size_t args_len, char *sep, ...);
 
 #endif

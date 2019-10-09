@@ -7,8 +7,7 @@ ud_arr  *ud_stra_vjoin_ctr(size_t args_len, char *sep, ...)
     size_t  len[args_len];
     size_t  total_len = 0;
 
-    va_start(va, args_len);
-    char    sep[] = (char *)va_arg(va, char *);
+    va_start(va, sep);
     size_t  sep_len = ud_str_len(sep);
     for (ud_ut_count i = 0; i < args_len; ++i)
     {
