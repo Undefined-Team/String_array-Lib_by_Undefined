@@ -2,6 +2,8 @@
 
 ud_arr_char_a  *ud_stra_vjoin_ctr(size_t args_len, char *sep, ...)
 {
+    if (!args_len)
+        return (NULL);
     char    *args[args_len];
     va_list va;
     size_t  len[args_len];
