@@ -3,6 +3,6 @@
 ud_arr  *ud_stra_whitespace(ud_arr *str)
 {
     if (!str) ud_ut_error("Null array provided.");
-    (char *)str->val = ud_str_whitespace((char *)str->val);
-    return str;
+    char *ws = ud_str_whitespace((char *)str->val);
+    return ud_arr_new(sizeof(char), ud_str_len(ws), ws);
 }
