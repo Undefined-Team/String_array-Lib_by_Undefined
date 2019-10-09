@@ -5,14 +5,14 @@
 
 int main(void)
 {
-    // ud_arr *a = ud_arr_set(char, 1, 'a');
-    // ud_arr *abc = ud_arr_set(char, 3, 'a', 'b', 'c');
-    // ud_arr *de = ud_arr_set(char, 2, 'd', 'e');
-    // ud_arr *aaaaa = ud_arr_set(char, 5, 'a', 'a', 'a', 'a', 'a');
-    // ud_arr *abcde = ud_arr_set(char, 5, 'a', 'b', 'c', 'd', 'e');
-    // ud_arr *abzde = ud_arr_set(char, 5, 'a', 'b', 'z', 'd', 'e');
-    // ud_arr *abade = ud_arr_set(char, 5, 'a', 'b', 'a', 'd', 'e');
-    // ud_arr *null = ud_arr_set(char, 1, 'a');
+    // ud_arr *a = ud_arr_set(char, 'a');
+    // ud_arr *abc = ud_arr_set(char, 'a', 'b', 'c');
+    // ud_arr *de = ud_arr_set(char, 'd', 'e');
+    // ud_arr *aaaaa = ud_arr_set(char, 'a', 'a', 'a', 'a', 'a');
+    // ud_arr *abcde = ud_arr_set(char, 'a', 'b', 'c', 'd', 'e');
+    // ud_arr *abzde = ud_arr_set(char, 'a', 'b', 'z', 'd', 'e');
+    // ud_arr *abade = ud_arr_set(char, 'a', 'b', 'a', 'd', 'e');
+    // ud_arr *null = ud_arr_set(char, 'a');
     // null->val = NULL;
     // null->len = 0;
 

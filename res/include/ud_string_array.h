@@ -3,6 +3,7 @@
 
 // Lib
 #include <ud_utils.h>
+#include <ud_math.h>
 #include <ud_array.h>
 
 // Macro
