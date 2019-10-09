@@ -3,9 +3,9 @@
 ud_arr_char_a                      *ud_stra_split(ud_arr_char_a *str, char *sep)
 {
     if (!str) ud_ut_error("Null array provided as first argument.");
-    else if (str->type_s != sizeof(char)) ud_ut_error("str argument must be an array of char");
+    else if (str->type_s != sizeof(char)) ud_ut_error("String argument must be an array of char");
     else if (!((char*)str->val) || !*((char*)str->val)) return ud_stra_dup(str);
-    else if (!sep || !*sep) ud_ut_error("separator can't be null");
+    else if (!sep || !*sep) ud_ut_error("Separator can't be null");
     size_t              split_len   = 0;
     size_t              sep_len     = ud_str_len(sep);
     char                *val        = (char*)str->val;
