@@ -31,6 +31,8 @@ int main(void)
     assert(!ud_stra_cmp(ud_stra_sub(abcde, 0, 3), abc));
     assert(!ud_stra_cmp(ud_stra_sub(abcde, 3, 2), de));
     assert(!ud_stra_cmp(ud_stra_ctoa('a'), a));
+    ud_arr *test = ud_stra_vjoin(",", "test", "b", "mdr", "allo");
+    ud_arr_print(test, char, "%c");
     assert(!ud_stra_cmp(ud_stra_vjoin("test", "b", "mdr", "allo"), ud_arr_new(sizeof(char), 13, "testbmdrallo")));
     ud_ut_time("%s", "All tests passed.");
 
