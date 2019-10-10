@@ -11,6 +11,7 @@
 # define ud_stra_dup(str)           ud_stra_ndup(str, 0)
 # define ud_stra_fdup(str)          ud_stra_fndup(str, 0)
 # define ud_stra_vjoin(sep, ...)    ud_stra_vjoin_ctr(UD_ARGS_LEN(char *, __VA_ARGS__), sep, __VA_ARGS__)
+# define ud_stra_new(str)           ud_arr_new(sizeof(char), ud_str_len(str), str)
 
 // Structures  
 
