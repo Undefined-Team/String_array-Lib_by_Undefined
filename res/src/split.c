@@ -4,7 +4,6 @@ ud_arr_char_a                      *ud_stra_split(ud_arr_char_a *str, char *sep)
 {
     if (!str) ud_ut_error("Null array provided as first argument.");
     else if (str->type_s != sizeof(char)) ud_ut_error("String argument must be an array of char");
-    // else if (!((char*)str->val) || !*((char*)str->val)) return ud_stra_dup(str);
     else if (!((char*)str->val) || !*((char*)str->val)) 
     {
         ud_arr_str_a       *new_arr    = ud_arr_init(0, 1);
