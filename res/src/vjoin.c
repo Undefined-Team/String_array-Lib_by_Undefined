@@ -13,7 +13,9 @@ ud_arr_char_a  *ud_stra_vjoin_ctr(size_t args_len, char *sep, size_t skip, ...)
     size_t  sep_len = ud_str_len(sep);
     for (ud_ut_count i = 0; i < args_len; ++i)
     {
-        args[i] = (char *)va_arg(va, char *);
+        char *buf = (char *)va_arg(va, char *);
+        if (!buf && --i < --args_len) continue;
+        args[i] = buf;
         len[i] = ud_str_len(args[i]);
         total_len += (!skip || !(i % skip)) ? len[i] + sep_len : len[i];
     }
