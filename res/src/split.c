@@ -53,7 +53,7 @@ static ud_arr   *ud_stra_split_rec(ud_arr *str, char **floor_sep)
     return splitted;
 }
 
-ud_arr          *ud_stra_vsplit_call(ud_arr *str, size_t args_len, ...)
+ud_arr          *ud_stra_rsplit_call(ud_arr *str, size_t args_len, ...)
 {
     va_list args;
     va_start(args, args_len);
