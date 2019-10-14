@@ -31,6 +31,7 @@ ud_arr_char_a  *ud_stra_vjoin_ctr(size_t args_len, char *sep, size_t skip, ...)
             t_join_val += sep_len;
         }
     }
+    *t_join_val = '\0';
     va_end(va);
     return join;
 }
