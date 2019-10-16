@@ -32,7 +32,7 @@ ud_arr_char_a                      *ud_stra_split(ud_arr_char_a *str, char *sep)
     return new_arr;
 }
 
-ud_arr   *ud_stra_rsplit_ctr(ud_arr *str, char **floor_sep)
+ud_arr   *ud_stra_rsplit(ud_arr *str, char **floor_sep)
 {
     if (!floor_sep || !*floor_sep) return NULL;
     ud_arr *splitted = ud_stra_split(str, *floor_sep);
@@ -44,7 +44,7 @@ ud_arr   *ud_stra_rsplit_ctr(ud_arr *str, char **floor_sep)
         ud_arr *new_val;
         while (len-- > 0)
         {
-            new_val = ud_stra_rsplit_ctr(*val, floor_sep);
+            new_val = ud_stra_rsplit(*val, floor_sep);
             ud_arr_free(*val);
             *val++ = new_val;
         }
