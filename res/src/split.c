@@ -52,16 +52,3 @@ ud_arr   *ud_stra_rsplit_ctr(ud_arr *str, char **floor_sep)
     }
     return splitted;
 }
-
-// ud_arr          *ud_stra_rsplit_ctr(ud_arr *str, size_t args_len, ...)
-// {
-//     va_list args;
-//     va_start(args, args_len);
-//     char *sep[args_len + 1];
-//     char **sep_tmp = sep;
-//     while (args_len-- > 0) *sep_tmp++ = (char*)va_arg(args, char*);
-//     *sep_tmp = NULL;
-//     ud_arr *parsed = ud_stra_split_rec(str, sep);
-//     va_end(args);
-//     return parsed;
-// }
