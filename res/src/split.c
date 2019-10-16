@@ -23,7 +23,7 @@ ud_arr_char_a                      *ud_stra_split(ud_arr_char_a *str, char *sep)
     {
         UD_UT_PROT_MALLOC(arr_str = ud_ut_malloc(sizeof(char) * (tmp->len + 1)));
         arr_str[tmp->len] = '\0';
-        val = ud_mem_cpy_rs(arr_str, val, tmp->len);
+        ud_mem_cpy_rs(arr_str, val, tmp->len);
         *arr_val = ud_arr_new(sizeof(char), tmp->len, arr_str);
         val += sep_len;
         ++arr_val;
@@ -32,7 +32,7 @@ ud_arr_char_a                      *ud_stra_split(ud_arr_char_a *str, char *sep)
     return new_arr;
 }
 
-static ud_arr   *ud_stra_split_rec(ud_arr *str, char **floor_sep)
+ud_arr   *ud_stra_rsplit_ctr(ud_arr *str, char **floor_sep)
 {
     if (!floor_sep || !*floor_sep) return NULL;
     char *sep = *floor_sep;
@@ -45,7 +45,7 @@ static ud_arr   *ud_stra_split_rec(ud_arr *str, char **floor_sep)
         ud_arr *new_val;
         while (len-- > 0)
         {
-            new_val = ud_stra_split_rec(*val, floor_sep);
+            new_val = ud_stra_rsplit_ctr(*val, floor_sep);
             ud_arr_free(*val);
             *val++ = new_val;
         }
@@ -53,15 +53,15 @@ static ud_arr   *ud_stra_split_rec(ud_arr *str, char **floor_sep)
     return splitted;
 }
 
-ud_arr          *ud_stra_rsplit_call(ud_arr *str, size_t args_len, ...)
-{
-    va_list args;
-    va_start(args, args_len);
-    char *sep[args_len + 1];
-    char **sep_tmp = sep;
-    while (args_len-- > 0) *sep_tmp++ = (char*)va_arg(args, char*);
-    *sep_tmp = NULL;
-    ud_arr *parsed = ud_stra_split_rec(str, sep);
-    va_end(args);
-    return parsed;
-}
+// ud_arr          *ud_stra_rsplit_ctr(ud_arr *str, size_t args_len, ...)
+// {
+//     va_list args;
+//     va_start(args, args_len);
+//     char *sep[args_len + 1];
+//     char **sep_tmp = sep;
+//     while (args_len-- > 0) *sep_tmp++ = (char*)va_arg(args, char*);
+//     *sep_tmp = NULL;
+//     ud_arr *parsed = ud_stra_split_rec(str, sep);
+//     va_end(args);
+//     return parsed;
+// }

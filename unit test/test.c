@@ -70,12 +70,12 @@ int main(void)
     // // ud_arr *test_set = ud_arr_set(int, 2, 3);
     // // ud_arr_print(test_set, int, "%d ");
 
-    // char *str = ud_str_dup("GEORGEsalutGEORGEmoictim");
-    // ud_arr *test = ud_arr_new(sizeof(char), ud_str_len(str), str);
-    // ud_arr *splitted = ud_stra_split(test, "GEORGE");
-    // ud_arr_print(splitted, char, "%c ");
-    // ud_arr_free(test);
-    // ud_arr_rfree(splitted);
-    // ud_arr_free(str);
+    char *str = ud_str_dup("GEORGEsalutGEORGEmoictim");
+    ud_arr *test = ud_arr_new(sizeof(char), ud_str_len(str), str);
+    ud_arr *splitted = ud_stra_split(test, "GEORGE");
+    ud_arr_print(splitted, char, "%c ");
+    ud_arr_free(test);
+    ud_arr_rfree(splitted);
+    ud_arr_free(str);
     return 0;
 }
