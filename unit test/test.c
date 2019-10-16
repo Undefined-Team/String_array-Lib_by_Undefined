@@ -75,7 +75,7 @@ int main(void)
     ud_arr *splitted = ud_stra_split(test, "GEORGE");
     ud_arr_print(splitted, char, "%c ");
     ud_arr_free(test);
-    ud_arr_rfree(splitted);
-    ud_arr_free(str);
+    ud_arr_free(splitted);
+    ud_ut_free(str);
     return 0;
 }
