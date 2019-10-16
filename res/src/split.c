@@ -35,9 +35,8 @@ ud_arr_char_a                      *ud_stra_split(ud_arr_char_a *str, char *sep)
 ud_arr   *ud_stra_rsplit_ctr(ud_arr *str, char **floor_sep)
 {
     if (!floor_sep || !*floor_sep) return NULL;
-    char *sep = *floor_sep;
+    ud_arr *splitted = ud_stra_split(str, *floor_sep);
     ++floor_sep;
-    ud_arr *splitted = ud_stra_split(str, sep);
     if (splitted->type_s == 0 && *floor_sep)
     {
         size_t len = splitted->len;
