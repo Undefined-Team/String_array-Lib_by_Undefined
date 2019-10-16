@@ -7,13 +7,11 @@
 #include <ud_array.h>
 
 // Macro
-// # define ud_str_is_white_space(c)           ((c) == ' ' || (c) == '\t' || (c) == '\n' || (c) == '\v' || (c) == '\f' || (c) == '\0')
 # define ud_stra_dup(str)                   ud_stra_ndup(str, 0)
 # define ud_stra_fdup(str)                  ud_stra_fndup(str, 0)
 # define ud_stra_vjoin(sep, ...)            ud_stra_vjoin_ctr(UD_ARGS_LEN(char *, __VA_ARGS__), sep, 0, __VA_ARGS__)
 # define ud_stra_vnjoin(sep, skip, ...)     ud_stra_vjoin_ctr(UD_ARGS_LEN(char *, __VA_ARGS__), sep, skip, __VA_ARGS__)
 # define ud_stra_new(str)                   ud_arr_new(sizeof(char), ud_str_len(str), str)
-// # define ud_stra_rsplit(str, ...)           ud_stra_rsplit_ctr(str, UD_ARGS_LEN(char*, __VA_ARGS__), __VA_ARGS__)
 # define ud_stra_rsplit(str, ...)   	    ({ char *sep[] = {__VA_ARGS__, NULL}; ud_arr *splitted = ud_stra_rsplit_ctr(str, sep); splitted; })
 
 
@@ -33,7 +31,6 @@ ud_arr_char_a                               *ud_stra_sub(ud_arr_char_a *str, siz
 size_t                                      ud_stra_len(ud_arr_char_a *str);
 ud_arr_char_a                               *ud_stra_split(ud_arr_char_a *str, char *sep);
 ud_arr                                      *ud_stra_rsplit_ctr(ud_arr *str, char **floor_sep);
-// ud_arr                                      *ud_stra_rsplit_ctr(ud_arr *str, size_t args_len, ...);
 ud_arr_char_a                               *ud_stra_vjoin_ctr(size_t args_len, char *sep, size_t skip, ...);
 
 #endif
