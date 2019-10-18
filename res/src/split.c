@@ -37,7 +37,7 @@ ud_arr   *ud_stra_rsplit(ud_arr *str, char **floor_sep)
     if (!floor_sep || !*floor_sep) return NULL;
     ud_arr *splitted = ud_stra_split(str, *floor_sep);
     ++floor_sep;
-    if (splitted->type->index == 0 && *floor_sep)
+    if (splitted->type == ud_arr_type_arr() && *floor_sep)
     {
         size_t len = splitted->len;
         ud_arr **val = (ud_arr**)splitted->val;
