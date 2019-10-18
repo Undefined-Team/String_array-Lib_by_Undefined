@@ -11,7 +11,7 @@
 # define ud_stra_fdup(str)                  ud_stra_fndup(str, 0)
 # define ud_stra_vjoin(sep, ...)            ud_stra_vjoin_ctr(UD_ARGS_LEN(char *, __VA_ARGS__), sep, 0, __VA_ARGS__)
 # define ud_stra_vnjoin(sep, skip, ...)     ud_stra_vjoin_ctr(UD_ARGS_LEN(char *, __VA_ARGS__), sep, skip, __VA_ARGS__)
-# define ud_stra_new(str)                   ud_arr_new(sizeof(char), ud_str_len(str), str)
+# define ud_stra_new(str)                   ud_arr_tnew(ud_stra_get_type(), ud_str_len(str), str)
 
 # define ud_stra_vrsplit(str, ...)   	    ({ char *sep[] = {__VA_ARGS__, NULL}; ud_arr *splitted = ud_stra_rsplit(str, sep); splitted; })
 
@@ -19,6 +19,7 @@
 // Structures  
 
 // Prototypes
+ud_arr_type                                 *ud_stra_type_char(void);
 int                                         ud_stra_chr(ud_arr_char_a *str, char c);
 int                                         ud_stra_cmp(ud_arr_char_a *s1, ud_arr_char_a *s2);
 ud_arr_char_a                               *ud_stra_ctoa(char c);

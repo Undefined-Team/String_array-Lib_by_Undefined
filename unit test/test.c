@@ -33,8 +33,8 @@ int main(void)
     // assert(!ud_stra_cmp(ud_stra_ctoa('a'), a));
     // assert(!ud_stra_cmp(ud_stra_vjoin("test", "b", "mdr", "allo"), ud_arr_new(sizeof(char), 13, "testbmdrallo")));
     // ud_ut_time("%s", "All tests passed.");
-    ud_arr *test21 = ud_stra_vjoin(NULL, "test", "A");
-    ud_arr_print(test21, char, "%c");
+    // ud_arr *test21 = ud_stra_vjoin(NULL, "test", "A");
+    // ud_arr_print(test21);
 
     // printf("%zd\n", UD_ARGS_LEN(int, 1, 2, 3));
     // // return 0;
@@ -71,9 +71,9 @@ int main(void)
     // // ud_arr_print(test_set, int, "%d ");
 
     char *str = ud_str_dup("GEORGEsalutGEORGEmoictim");
-    ud_arr *test = ud_arr_new(sizeof(char), ud_str_len(str), str);
+    ud_arr *test = ud_arr_new(char, ud_str_len(str), str);
     ud_arr *splitted = ud_stra_split(test, "GEORGE");
-    ud_arr_print(splitted, char, "%c ");
+    ud_arr_print(splitted);
     ud_arr_free(test);
     ud_arr_free(splitted);
     ud_ut_free(str);
