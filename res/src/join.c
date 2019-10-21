@@ -51,12 +51,11 @@ ud_arr *ud_stra_rjoin_ctr(ud_arr *str, char **sep, ud_bool need_free)
             ud_arr *new = ud_arr_tinit(ud_arr_type_arr(), str->len);
             ud_arr **new_val = (ud_arr**)new->val;
             for (ud_ut_count len = str->len; len-- > 0;)
-                *new_val++ = ud_stra_rjoin_ctr(*str_val++, sep, need_free);
+                *new_val++ = ud_stra_rjoin_ctr(*str_val++, sep, false);
             return ud_stra_join_ctr(new, *(sep - 1), true);
         }
-        else
-            for (ud_ut_count len = str->len; len-- > 0; ++str_val)
-                *str_val = ud_stra_rjoin_ctr(*str_val, sep, true);
+        for (ud_ut_count len = str->len; len-- > 0; ++str_val)
+            *str_val = ud_stra_rjoin_ctr(*str_val, sep, true);
     }
     return ud_stra_join_ctr(str, *(sep - 1), need_free);
 }
