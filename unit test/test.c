@@ -70,12 +70,40 @@ int main(void)
     // // ud_arr *test_set = ud_arr_set(int, 2, 3);
     // // ud_arr_print(test_set, int, "%d ");
 
-    char *str = ud_str_dup("GEORGEsalutGEORGEmoictim");
+    char *str = ud_str_dup("12,123;1234,12345");
     ud_arr *test = ud_arr_new(char, ud_str_len(str), str);
-    ud_arr *splitted = ud_stra_split(test, "GEORGE");
-    ud_arr_print(splitted);
+    ud_arr *splitted = ud_stra_vrsplit(test, ";", ",");
     ud_arr_free(test);
+    ud_arr_print(splitted);
+
+    ud_arr *test_join_split = ud_stra_vrjoin(splitted, ";", ",");
+    ud_arr_print(test_join_split);
+    ud_arr_print(splitted);
+
+    // printf("test = |%s|\n", (char*)test_join_split->val);
     ud_arr_free(splitted);
-    ud_ut_free(str);
+    ud_arr_free(test_join_split);
+    // ud_ut_free(str);
+
+    // ud_arr *joined = ud_stra_vrjoin(splitted, ";", ",");
+    // ud_arr_print(joined);
+
+    // ud_arr *test_join_in = ud_arr_tset(ud_arr*, ud_arr_type_arr(), ud_stra_snew("salut"), ud_stra_snew("ca va"));
+    ud_arr *test_join_in = ud_arr_set(ud_arr*, ud_stra_snew("salut"), ud_stra_snew("ca va"));
+    ud_arr *test_join = ud_stra_fjoin(test_join_in, ", ");
+    // ud_arr_print(test_join_in);
+    ud_arr_print(test_join);
+    // ud_arr_free(test_join_in);
+    ud_arr_free(test_join);
+
+    // ud_arr_print(ud_stra_set('c', 'a'));
+    
+    // ud_arr *test_vjoin = ud_stra_vjoin(",", "salut", "ca va");
+    // ud_arr_print(test_vjoin);
+    // ud_arr_free(test_vjoin);
+
+    // ud_arr_free(joined);
+    // ud_arr_free(splitted);
+    ud_arr_type_free();
     return 0;
 }

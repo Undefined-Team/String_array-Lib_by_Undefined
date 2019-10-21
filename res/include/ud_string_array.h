@@ -7,15 +7,26 @@
 #include <ud_array.h>
 
 // Macro
+# define ud_stra_init(input_len)            ({ ud_arr *arr = ud_arr_tinit(ud_stra_type_char(), input_len + 1); --arr->len; ((char*)arr->val)[arr->len] = '\0'; arr; })
+# define ud_stra_set(...)                   ({ ud_arr *arr = ud_arr_tset(char, ud_stra_type_char(), __VA_ARGS__, '\0'); --arr->len; arr; })
 # define ud_stra_dup(str)                   ud_stra_ndup(str, 0)
 # define ud_stra_fdup(str)                  ud_stra_fndup(str, 0)
-# define ud_stra_vjoin(sep, ...)            ud_stra_vjoin_ctr(UD_ARGS_LEN(char *, __VA_ARGS__), sep, 0, __VA_ARGS__)
-# define ud_stra_vnjoin(sep, skip, ...)     ud_stra_vjoin_ctr(UD_ARGS_LEN(char *, __VA_ARGS__), sep, skip, __VA_ARGS__)
 # define ud_stra_new(str)                   ud_arr_tnew(ud_stra_type_char(), ud_str_len(str), str)
+# define ud_stra_snew(str)                  ud_arr_tnew(ud_stra_type_char(), ud_str_len(str), ud_str_dup(str))
 
 # define ud_stra_vrsplit(str, ...)   	    ({ char *sep[] = {__VA_ARGS__, NULL}; ud_arr *splitted = ud_stra_rsplit(str, sep); splitted; })
 
+# define ud_stra_join(str, sep)             ud_stra_join_ctr(str, sep, false)
+# define ud_stra_fjoin(str, sep)            ud_stra_join_ctr(str, sep, true)
 
+# define ud_stra_vjoin(sep, ...)            ud_stra_join(ud_arr_tset(ud_arr*, ud_arr_type_arr(), __VA_ARGS__, NULL), sep);
+# define ud_stra_vfjoin(sep, ...)           ud_stra_fjoin(ud_arr_tset(ud_arr*, ud_arr_type_arr(), __VA_ARGS__, NULL), sep);
+
+# define ud_stra_rjoin(str, sep)            ud_stra_rjoin_ctr(str, sep, false)
+# define ud_stra_rfjoin(str, sep)           ud_stra_rjoin_ctr(str, sep, true)
+
+# define ud_stra_vrjoin(str, ...)           ({ char *sep[] = {__VA_ARGS__, NULL}; ud_arr *ret = ud_stra_rjoin(str, sep); ret; })
+# define ud_stra_vrfjoin(str, ...)          ({ char *sep[] = {__VA_ARGS__, NULL}; ud_arr *ret = ud_stra_rfjoin(str, sep); ret; })
 // Structures  
 
 // Prototypes
@@ -31,8 +42,9 @@ ud_arr_char_a                               *ud_stra_fsub(ud_arr_char_a *str, si
 ud_arr_char_a                               *ud_stra_cat(ud_arr_char_a *head, ud_arr_char_a *tail);
 ud_arr_char_a                               *ud_stra_sub(ud_arr_char_a *str, size_t start, size_t len);
 size_t                                      ud_stra_len(ud_arr_char_a *str);
-ud_arr_char_a                               *ud_stra_split(ud_arr_char_a *str, char *sep);
-ud_arr                                      *ud_stra_rsplit(ud_arr *str, char **floor_sep);
-ud_arr_char_a                               *ud_stra_vjoin_ctr(size_t args_len, char *sep, size_t skip, ...);
+ud_arr_str_a                                *ud_stra_split(ud_arr_char_a *str, char *sep);
+ud_arr_str_a                                *ud_stra_rsplit(ud_arr *str, char **floor_sep);
+ud_arr_char_a                               *ud_stra_join_ctr(ud_arr *str, char *sep, ud_bool need_free);
+ud_arr_char_a                               *ud_stra_rjoin_ctr(ud_arr *str, char **sep, ud_bool need_free);
 
 #endif
