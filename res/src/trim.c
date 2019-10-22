@@ -31,6 +31,6 @@ ud_arr   *ud_stra_ctrim(ud_arr *arr, char **trim)
     size_t *trim_len_tmp = trim_len;
     ud_ptr_fp(trim, ud_str_trim_len, &trim_len_tmp);
     ud_arr *new = ud_arr_cpy(arr);
-    ud_stra_trim_ctr(new, trim, trim_len, false);
+    ud_stra_trim_ctr(new, trim, trim_len, true);
     return new;
 }
