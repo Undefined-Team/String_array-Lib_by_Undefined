@@ -10,7 +10,7 @@ static ud_bool ud_stra_trim_ctr(ud_arr *arr, char **trim, size_t *trim_len, ud_b
             if (ud_stra_trim_ctr(*val, trim, trim_len, need_free))
             {
                 vval = (char*)(*val)->val;
-                vval = ud_str_trim_ctr(vval, trim, trim_len, need_free);
+                (char*)(*val)->val = ud_str_trim_ctr(vval, trim, trim_len, need_free);
                 (*val)->len = ud_str_len(vval);
             }
     }
