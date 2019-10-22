@@ -1,21 +1,20 @@
 #include "ud_string_array.h"
 
-static ud_bool ud_stra_trim_ctr(ud_arr *arr, char **trim, size_t *trim_len, ud_bool need_free)
+static void ud_stra_trim_ctr(ud_arr *arr, char **trim, size_t *trim_len, ud_bool need_free)
 {
     if (arr->type == ud_arr_type_arr())
     {
         ud_arr **val = (ud_arr**)arr->val;
-        char *vval;
-        for (ud_ut_count len = arr->len; len > 0; --len, ++val)
-            if (ud_stra_trim_ctr(*val, trim, trim_len, need_free))
-            {
-                vval = (char*)(*val)->val;
-                (char*)(*val)->val = ud_str_trim_ctr(vval, trim, trim_len, need_free);
-                (*val)->len = ud_str_len(vval);
-            }
+        for (ud_ut_count len = arr->len; len > 0; --len) ud_stra_trim_ctr(*val++, trim, trim_len, need_free);
     }
-    else if (arr->type == ud_stra_type_char()) return true;
-    return false;
+    else if (arr->type == ud_stra_type_char())
+    {
+        char *vval;
+        vval = (char*)arr->val;
+        vval = ud_str_trim_ctr(vval, trim, trim_len, need_free);
+        arr->val = vval;
+        arr->len = ud_str_len(vval);
+    }
 }
 
 void    ud_stra_trim(ud_arr *arr, char **trim)

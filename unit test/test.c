@@ -70,10 +70,12 @@ int main(void)
     // // ud_arr *test_set = ud_arr_set(int, 2, 3);
     // // ud_arr_print(test_set, int, "%d ");
 
-    char *str = ud_str_dup("12,123;1234,12345");
+    char *str = ud_str_dup("ccss12,123;1234,12345ccss");
     ud_arr *test = ud_arr_new(char, ud_str_len(str), str);
     ud_arr *splitted = ud_stra_vrsplit(test, ";", ",");
     ud_arr_free(test);
+    ud_arr_print(splitted);
+    ud_stra_vtrim(splitted, "cc", "ss");
     ud_arr_print(splitted);
 
     ud_arr *test_join_split = ud_stra_vrjoin(splitted, ";", ",");
