@@ -11,7 +11,7 @@ static ud_bool ud_stra_trim_ctr(ud_arr *arr, char **trim, size_t *trim_len, ud_b
             {
                 vval = (char*)(*val)->val;
                 vval = ud_str_trim_ctr(vval, trim, trim_len, need_free);
-                val->len = ud_str_len(vval);
+                (*val)->len = ud_str_len(vval);
             }
     }
     else if (arr->type == ud_stra_type_char()) return true;
