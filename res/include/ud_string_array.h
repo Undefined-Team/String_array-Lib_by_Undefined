@@ -15,7 +15,7 @@
 # define ud_stra_snew(str)                  ud_arr_tnew(ud_stra_type_char(), ud_str_len(str), ud_str_dup(str))
 
 # define ud_stra_vtrim(arr, ...)            ({ char *trim[] = {__VA_ARGS__, NULL}; ud_stra_trim(arr, trim); })
-# define ud_stra_vftrim(arr, ...)           ({ char *trim[] = {__VA_ARGS__, NULL}; ud_stra_trim(arr, trim); })
+# define ud_stra_vftrim(arr, ...)           ({ char *trim[] = {__VA_ARGS__, NULL}; ud_stra_ftrim(arr, trim); })
 
 # define ud_stra_vrsplit(str, ...)   	    ({ char *sep[] = {__VA_ARGS__, NULL}; ud_stra_rsplit(str, sep); })
 
