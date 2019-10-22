@@ -14,7 +14,10 @@
 # define ud_stra_new(str)                   ud_arr_tnew(ud_stra_type_char(), ud_str_len(str), str)
 # define ud_stra_snew(str)                  ud_arr_tnew(ud_stra_type_char(), ud_str_len(str), ud_str_dup(str))
 
-# define ud_stra_vrsplit(str, ...)   	    ({ char *sep[] = {__VA_ARGS__, NULL}; ud_arr *splitted = ud_stra_rsplit(str, sep); splitted; })
+# define ud_stra_vtrim(arr, ...)            ({ char *trim[] = {__VA_ARGS__, NULL}; ud_stra_trim(arr, trim); })
+# define ud_stra_vftrim(arr, ...)           ({ char *trim[] = {__VA_ARGS__, NULL}; ud_stra_trim(arr, trim); })
+
+# define ud_stra_vrsplit(str, ...)   	    ({ char *sep[] = {__VA_ARGS__, NULL}; ud_stra_rsplit(str, sep); })
 
 # define ud_stra_join(str, sep)             ud_stra_join_ctr(str, sep, false)
 # define ud_stra_fjoin(str, sep)            ud_stra_join_ctr(str, sep, true)
@@ -25,8 +28,8 @@
 # define ud_stra_rjoin(str, sep)            ud_stra_rjoin_ctr(str, sep, false)
 # define ud_stra_rfjoin(str, sep)           ud_stra_rjoin_ctr(str, sep, true)
 
-# define ud_stra_vrjoin(str, ...)           ({ char *sep[] = {__VA_ARGS__, NULL}; ud_arr *ret = ud_stra_rjoin(str, sep); ret; })
-# define ud_stra_vrfjoin(str, ...)          ({ char *sep[] = {__VA_ARGS__, NULL}; ud_arr *ret = ud_stra_rfjoin(str, sep); ret; })
+# define ud_stra_vrjoin(str, ...)           ({ char *sep[] = {__VA_ARGS__, NULL}; ud_stra_rjoin(str, sep); })
+# define ud_stra_vrfjoin(str, ...)          ({ char *sep[] = {__VA_ARGS__, NULL}; ud_stra_rfjoin(str, sep); })
 // Structures  
 
 // Prototypes
@@ -46,5 +49,7 @@ ud_arr_str_a                                *ud_stra_split(ud_arr_char_a *str, c
 ud_arr_str_a                                *ud_stra_rsplit(ud_arr *str, char **floor_sep);
 ud_arr_char_a                               *ud_stra_join_ctr(ud_arr *str, char *sep, ud_bool need_free);
 ud_arr_char_a                               *ud_stra_rjoin_ctr(ud_arr *str, char **sep, ud_bool need_free);
+void                                        ud_stra_trim(ud_arr *arr, char **trim);
+ud_arr                                      *ud_stra_ctrim(ud_arr *arr, char **trim);
 
 #endif
