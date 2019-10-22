@@ -7,12 +7,12 @@
 #include <ud_array.h>
 
 // Macro
-# define ud_stra_init(input_len)            ({ ud_arr *arr = ud_arr_tinit(ud_stra_type_char(), input_len + 1); --arr->len; ((char*)arr->val)[arr->len] = '\0'; arr; })
-# define ud_stra_set(...)                   ({ ud_arr *arr = ud_arr_tset(char, ud_stra_type_char(), __VA_ARGS__, '\0'); --arr->len; arr; })
+# define ud_stra_init(input_len)            ({ ud_arr *arr = ud_arr_tinit(ud_arr_type_char(), input_len + 1); --arr->len; ((char*)arr->val)[arr->len] = '\0'; arr; })
+# define ud_stra_set(...)                   ({ ud_arr *arr = ud_arr_tset(char, ud_arr_type_char(), __VA_ARGS__, '\0'); --arr->len; arr; })
 # define ud_stra_dup(str)                   ud_stra_ndup(str, 0)
 # define ud_stra_fdup(str)                  ud_stra_fndup(str, 0)
-# define ud_stra_new(str)                   ud_arr_tnew(ud_stra_type_char(), ud_str_len(str), str)
-# define ud_stra_snew(str)                  ud_arr_tnew(ud_stra_type_char(), ud_str_len(str), ud_str_dup(str))
+# define ud_stra_new(str)                   ud_arr_tnew(ud_arr_type_char(), ud_str_len(str), str)
+# define ud_stra_snew(str)                  ud_arr_tnew(ud_arr_type_char(), ud_str_len(str), ud_str_dup(str))
 
 # define ud_stra_vtrim(arr, ...)            ({ char *trim[] = {__VA_ARGS__, NULL}; ud_stra_trim(arr, trim); })
 # define ud_stra_vctrim(arr, ...)           ({ char *trim[] = {__VA_ARGS__, NULL}; ud_stra_ctrim(arr, trim); })
@@ -33,7 +33,7 @@
 // Structures  
 
 // Prototypes
-ud_arr_type                                 *ud_stra_type_char(void);
+ud_arr_type                                 *ud_arr_type_char(void);
 int                                         ud_stra_chr(ud_arr_char_a *str, char c);
 int                                         ud_stra_cmp(ud_arr_char_a *s1, ud_arr_char_a *s2);
 ud_arr_char_a                               *ud_stra_ctoa(char c);

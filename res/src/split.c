@@ -3,7 +3,7 @@
 ud_arr_char_a                      *ud_stra_split(ud_arr_char_a *str, char *sep)
 {
     if (!str) ud_ut_error("Null array provided as first argument.");
-    else if (str->type != ud_stra_type_char()) ud_ut_error("String argument must be an array of char");
+    else if (str->type != ud_arr_type_char()) ud_ut_error("String argument must be an array of char");
     else if (!((char*)str->val) || !*((char*)str->val)) 
     {
         ud_arr_str_a       *new_arr    = ud_arr_tinit(ud_arr_type_arr(), 1);
@@ -24,7 +24,7 @@ ud_arr_char_a                      *ud_stra_split(ud_arr_char_a *str, char *sep)
         UD_UT_PROT_MALLOC(arr_str = ud_ut_malloc(sizeof(char) * (tmp->len + 1)));
         arr_str[tmp->len] = '\0';
         ud_mem_cpy_rs(arr_str, val, tmp->len);
-        *arr_val = ud_arr_tnew(ud_stra_type_char(), tmp->len, arr_str);
+        *arr_val = ud_arr_tnew(ud_arr_type_char(), tmp->len, arr_str);
         val += sep_len;
         ++arr_val;
     }
