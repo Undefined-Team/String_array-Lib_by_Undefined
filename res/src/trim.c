@@ -11,7 +11,7 @@ static void ud_stra_trim_ctr(ud_arr *arr, char **trim, size_t *trim_len)
     {
         char *vval;
         vval = (char*)arr->val;
-        vval = ud_str_trim_ctr(vval, trim, trim_len, true);
+        vval = ud_str_trim_main_ctr(vval, trim, trim_len, true);
         arr->val = vval;
         arr->len = ud_str_len(vval);
     }
@@ -21,16 +21,6 @@ void    ud_stra_trim(ud_arr *arr, char **trim)
 {
     size_t trim_len[ud_ptr_len(trim)];
     size_t *trim_len_tmp = trim_len;
-    ud_ptr_fp(trim, ud_str_trim_len, &trim_len_tmp);
+    ud_ptr_foreach(trim, elem, *trim_len_tmp++ = ud_str_len(*elem););
     ud_stra_trim_ctr(arr, trim, trim_len);
-}
-
-ud_arr   *ud_stra_ctrim(ud_arr *arr, char **trim)
-{
-    size_t trim_len[ud_ptr_len(trim)];
-    size_t *trim_len_tmp = trim_len;
-    ud_ptr_fp(trim, ud_str_trim_len, &trim_len_tmp);
-    ud_arr *new = ud_arr_cpy(arr);
-    ud_stra_trim_ctr(new, trim, trim_len);
-    return new;
 }

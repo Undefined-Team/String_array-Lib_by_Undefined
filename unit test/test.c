@@ -75,13 +75,13 @@ int main(void)
     ud_arr *splitted = ud_stra_vrsplit(test, ";", ",");
     ud_arr_free(test);
     ud_arr_print(splitted);
-    ud_stra_vtrim(splitted, "cc", "ss");
-    // ud_arr *splitted_cpy = ud_stra_vctrim(splitted, "cc", "ss");
+    // ud_stra_vtrim(splitted, "cc", "ss");
+    ud_arr *splitted_cpy = ud_stra_vctrim(splitted, "cc", "ss");
     // ud_arr *splitted_cpy = ud_arr_cpy(splitted);
-    ud_arr_print(splitted);
+    // ud_arr_print(splitted);
     // ud_stra_vtrim(splitted_cpy, "cc", "ss");
-    // ud_arr_print(splitted_cpy);
-    // ud_arr_free(splitted_cpy);
+    ud_arr_print(splitted_cpy);
+    ud_arr_free(splitted_cpy);
 
     ud_arr *test_join_split = ud_stra_vrjoin(splitted, ";", ",");
     ud_arr_print(test_join_split);
@@ -111,6 +111,5 @@ int main(void)
 
     // ud_arr_free(joined);
     // ud_arr_free(splitted);
-    ud_arr_type_free();
     return 0;
 }

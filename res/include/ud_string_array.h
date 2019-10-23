@@ -14,6 +14,8 @@
 # define ud_stra_new(str)                   ud_arr_tnew(ud_arr_type_char(), ud_str_len(str), str)
 # define ud_stra_snew(str)                  ud_arr_tnew(ud_arr_type_char(), ud_str_len(str), ud_str_dup(str))
 
+# define ud_stra_ctrim(arr, trim)           ({ ud_arr *new_arr = ud_arr_cpy(arr); ud_stra_trim(new_arr, trim); new_arr; })
+
 # define ud_stra_vtrim(arr, ...)            ({ char *trim[] = {__VA_ARGS__, NULL}; ud_stra_trim(arr, trim); })
 # define ud_stra_vctrim(arr, ...)           ({ char *trim[] = {__VA_ARGS__, NULL}; ud_stra_ctrim(arr, trim); })
 
@@ -50,6 +52,5 @@ ud_arr_str_a                                *ud_stra_rsplit(ud_arr *str, char **
 ud_arr_char_a                               *ud_stra_join_ctr(ud_arr *str, char *sep, ud_bool need_free);
 ud_arr_char_a                               *ud_stra_rjoin_ctr(ud_arr *str, char **sep, ud_bool need_free);
 void                                        ud_stra_trim(ud_arr *arr, char **trim);
-ud_arr                                      *ud_stra_ctrim(ud_arr *arr, char **trim);
 
 #endif
