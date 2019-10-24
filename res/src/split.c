@@ -21,7 +21,7 @@ ud_arr_char_a                      *ud_stra_split(ud_arr_char_a *str, char *sep)
     char                *arr_str;
     for (ud_str_split_len *tmp = begin->next; tmp; tmp = tmp->next)
     {
-        UD_UT_PROT_MALLOC(arr_str = ud_ut_malloc(sizeof(char) * (tmp->len + 1)));
+        ud_ut_prot_malloc(arr_str = ud_ut_malloc(sizeof(char) * (tmp->len + 1)));
         arr_str[tmp->len] = '\0';
         ud_mem_cpy_rs(arr_str, val, tmp->len);
         *arr_val = ud_arr_tnew(ud_arr_type_char(), tmp->len, arr_str);
