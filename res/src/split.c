@@ -28,7 +28,7 @@ ud_arr_char_a                      *ud_stra_split(ud_arr_char_a *str, char *sep)
         val += sep_len;
         ++arr_val;
     }
-    ud_list_free(begin);
+    ud_list_free(ud_str_split_len, begin);
     return new_arr;
 }
 
