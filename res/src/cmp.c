@@ -2,7 +2,14 @@
 
 int     ud_stra_cmp(ud_arr_char_a *s1, ud_arr_char_a *s2)
 {
-    if (!s1) ud_ut_error("Null array provided as first argument.");
-    else if (!s2) ud_ut_error("Null array provided as second argument.");
+    if (!s1) return (s2) ? -1 : 0;
+    else if (!s2) return 1;
     return ud_str_cmp((char *)s1->val, (char *)s2->val);
+}
+
+int     ud_stra_ncmp(ud_arr_char_a *s1, ud_arr_char_a *s2, size_t n)
+{
+    if (!s1) return (s2) ? -1 : 0;
+    else if (!s2) return 1;
+    return ud_str_ncmp((char *)s1->val, (char *)s2->val, n);
 }

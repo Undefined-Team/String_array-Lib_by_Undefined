@@ -38,6 +38,7 @@
 ud_arr_type                                 *ud_arr_type_char(void);
 int                                         ud_stra_chr(ud_arr_char_a *str, char c);
 int                                         ud_stra_cmp(ud_arr_char_a *s1, ud_arr_char_a *s2);
+int                                         ud_stra_ncmp(ud_arr_char_a *s1, ud_arr_char_a *s2, size_t n);
 ud_arr_char_a                               *ud_stra_ctoa(char c);
 ud_arr_char_a                               *ud_stra_ndup(ud_arr_char_a *str, size_t len);
 ud_arr_char_a                               *ud_stra_fndup(ud_arr_char_a *str, size_t len);
@@ -52,5 +53,6 @@ ud_arr_str_a                                *ud_stra_rsplit(ud_arr *str, char **
 ud_arr_char_a                               *ud_stra_join_ctr(ud_arr *str, char *sep, ud_bool need_free);
 ud_arr_char_a                               *ud_stra_rjoin_ctr(ud_arr *str, char **sep, ud_bool need_free);
 void                                        ud_stra_trim(ud_arr *arr, char **trim);
+ud_arr_char_a                               *ud_stra_whitespace(ud_arr_char_a *str);
 
 #endif
