@@ -53,6 +53,7 @@ ud_arr_str_a                                *ud_stra_rsplit(ud_arr *str, char **
 ud_arr_char_a                               *ud_stra_join_ctr(ud_arr *str, char *sep, ud_bool need_free);
 ud_arr_char_a                               *ud_stra_rjoin_ctr(ud_arr *str, char **sep, ud_bool need_free);
 void                                        ud_stra_trim(ud_arr *arr, char **trim);
+ud_arr_char_a                               *ud_stra_escape(ud_arr_char_a *str);
 ud_arr_char_a                               *ud_stra_whitespace(ud_arr_char_a *str);
 
 #endif
