@@ -8,12 +8,11 @@ ud_arr    *ud_stra_join_ctr(ud_arr *str, char *sep, ud_bool need_free)
     ud_arr **str_tmp = (ud_arr**)str->val;
     size_t str_nbr = str->len;
     ud_arr **val = (ud_arr**)str->val;
-    for (ud_ut_count i = 0; i < str_nbr; ++i) 
-        total_len += (*val++)->len;
-    total_len += sep_len * (str_nbr - 1);
+    for (ud_ut_count i = 0; i < str_nbr; ++i) total_len += (*val++)->len;
+    --str_nbr;
+    total_len += sep_len * str_nbr;
     ud_arr *res = ud_stra_init(total_len);
     char *res_val = (char*)res->val;
-    --str_nbr;
     if (need_free)
     {
         for (ud_ut_count i = 0; i < str_nbr; ++i)

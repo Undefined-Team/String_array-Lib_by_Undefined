@@ -62,6 +62,7 @@ void ud_stra_test_tmp(void)
     ud_ut_test(!ud_stra_cmp(ud_stra_join(ud_arr_set(ud_arr *, ud_stra_new("a"), ud_stra_new("b"), ud_stra_new("c"), ud_stra_new("d"), ud_stra_new("e"), ud_stra_new("f")), ","), ud_stra_new("a,b,c,d,e,f")));
     ud_ut_test(!ud_stra_cmp(ud_stra_join(ud_arr_set(ud_arr *, ud_stra_new("a"), ud_stra_new("b"), ud_stra_new("c"), ud_stra_new("d"), ud_stra_new("e"), ud_stra_new("f")), "FOO"), ud_stra_new("aFOObFOOcFOOdFOOeFOOf")));
     ud_ut_test(!ud_stra_cmp(ud_stra_join(ud_arr_set(ud_arr *, ud_stra_new("FOO"), ud_stra_new("FOO")), "FOO"), ud_stra_new("FOOFOOFOO")));
+    printf("\n");
     // ud_arr *vjoin1 = ud_stra_vjoin(",", a, b, abc);
     // ud_arr *ret1 = ud_stra_new("a,b,abc");
     // ud_ut_test(!ud_stra_cmp(vjoin1, ret1));
@@ -202,9 +203,18 @@ int main(void)
     // // ud_arr *test_set = ud_arr_set(int, 2, 3);
     // // ud_arr_print(test_set, int, "%d ");
 
-    ud_stra_test_tmp();
+    // ud_stra_test_tmp();
 
-    /*char *str = ud_str_dup("ccss12,123;1234,12345ccss");
+    // ud_arr *test_join_in = ud_arr_tset(ud_arr*, ud_arr_type_arr(), ud_stra_snew("salut"), ud_stra_snew("ca va"));
+    ud_arr *test_join_in = ud_arr_set(ud_arr*, ud_stra_snew("salut"), ud_stra_snew("ca va"), ud_stra_snew("oui"));
+    ud_arr_print(test_join_in);
+    ud_arr *test_join = ud_stra_fjoin(test_join_in, ", ");
+    // ud_arr_print(test_join_in);
+    ud_arr_print(test_join);
+    // ud_arr_free(test_join_in);
+    ud_arr_free(test_join);
+
+    char *str = ud_str_dup("ccss12,123;1234,12345ccss");
     ud_arr *test = ud_arr_new(char, ud_str_len(str), str);
     ud_arr *splitted = ud_stra_vrsplit(test, ";", ",");
     ud_arr_free(test);
@@ -217,7 +227,10 @@ int main(void)
     ud_arr_print(splitted_cpy);
     ud_arr_free(splitted_cpy);
 
+    printf("test join\n");
     ud_arr *test_join_split = ud_stra_vrjoin(splitted, ";", ",");
+
+    printf("test join\n");
     ud_arr_print(test_join_split);
     ud_arr_print(splitted);
 
@@ -229,13 +242,7 @@ int main(void)
     // ud_arr *joined = ud_stra_vrjoin(splitted, ";", ",");
     // ud_arr_print(joined);
 
-    // ud_arr *test_join_in = ud_arr_tset(ud_arr*, ud_arr_type_arr(), ud_stra_snew("salut"), ud_stra_snew("ca va"));
-    ud_arr *test_join_in = ud_arr_set(ud_arr*, ud_stra_snew("salut"), ud_stra_snew("ca va"));
-    ud_arr *test_join = ud_stra_fjoin(test_join_in, ", ");
-    // ud_arr_print(test_join_in);
-    ud_arr_print(test_join);
-    // ud_arr_free(test_join_in);
-    ud_arr_free(test_join);
+
 
     // ud_arr_print(ud_stra_set('c', 'a'));
     
@@ -244,6 +251,6 @@ int main(void)
     // ud_arr_free(test_vjoin);
 
     // ud_arr_free(joined);
-    // ud_arr_free(splitted);*/
+    // ud_arr_free(splitted);
     return 0;
 }

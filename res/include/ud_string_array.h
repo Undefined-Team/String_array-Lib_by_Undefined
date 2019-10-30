@@ -24,8 +24,8 @@
 # define ud_stra_join(str, sep)             ud_stra_join_ctr(str, sep, false)
 # define ud_stra_fjoin(str, sep)            ud_stra_join_ctr(str, sep, true)
 
-# define ud_stra_vjoin(sep, ...)            ud_stra_join(ud_arr_tset(ud_arr*, ud_arr_type_arr(), __VA_ARGS__, NULL), sep);
-# define ud_stra_vfjoin(sep, ...)           ud_stra_fjoin(ud_arr_tset(ud_arr*, ud_arr_type_arr(), __VA_ARGS__, NULL), sep);
+# define ud_stra_vjoin(sep, ...)            ud_stra_join(ud_arr_tset(ud_arr*, ud_arr_type_arr(), __VA_ARGS__), sep);
+# define ud_stra_vfjoin(sep, ...)           ud_stra_fjoin(ud_arr_tset(ud_arr*, ud_arr_type_arr(), __VA_ARGS__), sep);
 
 # define ud_stra_rjoin(str, sep)            ud_stra_rjoin_ctr(str, sep, false)
 # define ud_stra_rfjoin(str, sep)           ud_stra_rjoin_ctr(str, sep, true)
