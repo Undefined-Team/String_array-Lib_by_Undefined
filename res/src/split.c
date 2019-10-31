@@ -10,7 +10,19 @@ ud_arr_char_a                      *ud_stra_split(ud_arr_char_a *str, char *sep)
         *(ud_arr_char_a**)new_arr->val = ud_stra_dup(str);
         return new_arr;
     }
-    else if (!sep || !*sep) ud_ut_error("Separator can't be null");
+    else if (!sep || !*sep)
+    {
+        ud_arr_str_a       *new_arr    = ud_arr_tinit(ud_arr_type_arr(), str->len);
+        ud_arr **val = (ud_arr**)new_arr->val;
+        char *fstr = (char*)str->val;
+        for (ud_ut_count len = new_arr->len; len-- > 0; ) 
+        {
+            char tmp[] = {*fstr++, '\0'};
+            *val++ = ud_stra_snew(tmp);
+        }
+        return new_arr;
+        // ud_ut_error("Separator can't be null");
+    }
     size_t              split_len   = 0;
     size_t              sep_len     = ud_str_len(sep);
     char                *val        = (char*)str->val;

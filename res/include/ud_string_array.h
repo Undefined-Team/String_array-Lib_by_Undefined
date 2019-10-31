@@ -20,7 +20,7 @@
 # define ud_stra_vtrim(_arr, ...)           ({ char *_trim[] = {__VA_ARGS__, NULL}; ud_stra_trim(_arr, _trim); })
 # define ud_stra_vctrim(_arr, ...)          ({ char *_trim[] = {__VA_ARGS__, NULL}; ud_stra_ctrim(_arr, _trim); })
 
-# define ud_stra_vrsplit(_str, ...)   	    ({ char *sep[] = {__VA_ARGS__, NULL}; ud_stra_rsplit(_str, _sep); })
+# define ud_stra_vrsplit(_str, ...)   	    ({ char *_sep[] = {__VA_ARGS__, NULL}; ud_stra_rsplit(_str, _sep); })
 
 # define ud_stra_join(str, sep)             ud_stra_join_ctr(str, sep, false)
 # define ud_stra_fjoin(str, sep)            ud_stra_join_ctr(str, sep, true)

@@ -241,8 +241,14 @@ int main(void)
 
     // ud_arr *joined = ud_stra_vrjoin(splitted, ";", ",");
     // ud_arr_print(joined);
-
-
+    ud_arr *str2 = ud_stra_snew("salut");
+    ud_arr *splitted2 = ud_stra_split(str2, NULL);
+    ud_arr_print(splitted2);
+    ud_arr *joined2 = ud_stra_join(splitted2, "");
+    ud_arr_print(joined2);
+    ud_arr_free(splitted2);
+    ud_arr_free(joined2);
+    ud_arr_free(str2);
 
     // ud_arr_print(ud_stra_set('c', 'a'));
     
