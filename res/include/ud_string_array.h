@@ -11,8 +11,8 @@
 # define ud_stra_set(...)                   ({ ud_arr *arr = ud_arr_tset(char, ud_arr_type_char(), __VA_ARGS__, '\0'); --arr->len; arr; })
 # define ud_stra_dup(str)                   ud_stra_ndup(str, 0)
 # define ud_stra_fdup(str)                  ud_stra_fndup(str, 0)
-# define ud_stra_new(str)                   ud_arr_tnew(ud_arr_type_char(), ud_str_len(str), str)
-# define ud_stra_snew(str)                  ud_arr_tnew(ud_arr_type_char(), ud_str_len(str), ud_str_dup(str))
+# define ud_stra_new(str)                   ({ char *tmp = str; ud_arr_tnew(ud_arr_type_char(), ud_str_len(tmp), tmp); )}
+# define ud_stra_snew(str)                  ({ char *tmp = str; ud_arr_tnew(ud_arr_type_char(), ud_str_len(tmp), ud_str_dup(tmp)); )}
 
 # define ud_stra_ctrim(arr, trim)           ({ ud_arr *new_arr = ud_arr_cpy(arr); ud_stra_trim(new_arr, trim); new_arr; })
 
