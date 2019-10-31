@@ -7,19 +7,20 @@
 #include <ud_array.h>
 
 // Macro
-# define ud_stra_init(input_len)            ({ ud_arr *arr = ud_arr_tinit(ud_arr_type_char(), input_len + 1); --arr->len; ((char*)arr->val)[arr->len] = '\0'; arr; })
-# define ud_stra_set(...)                   ({ ud_arr *arr = ud_arr_tset(char, ud_arr_type_char(), __VA_ARGS__, '\0'); --arr->len; arr; })
+# define ud_stra_init(_input_len)           ({ ud_arr *_arr = ud_arr_tinit(ud_arr_type_char(), _input_len + 1); --_arr->len; ((char*)_arr->val)[_arr->len] = '\0'; _arr; })
+# define ud_stra_set(...)                   ({ ud_arr *_arr = ud_arr_tset(char, ud_arr_type_char(), __VA_ARGS__, '\0'); --_arr->len; _arr; })
 # define ud_stra_dup(str)                   ud_stra_ndup(str, 0)
 # define ud_stra_fdup(str)                  ud_stra_fndup(str, 0)
-# define ud_stra_new(str)                   ({ char *tmp = str; ud_arr_tnew(ud_arr_type_char(), ud_str_len(tmp), tmp); )}
-# define ud_stra_snew(str)                  ({ char *tmp = str; ud_arr_tnew(ud_arr_type_char(), ud_str_len(tmp), ud_str_dup(tmp)); )}
 
-# define ud_stra_ctrim(arr, trim)           ({ ud_arr *new_arr = ud_arr_cpy(arr); ud_stra_trim(new_arr, trim); new_arr; })
+# define ud_stra_new(_str)                  ({ char *_tmp = _str; ud_arr_tnew(ud_arr_type_char(), ud_str_len(_tmp), _tmp); })
+# define ud_stra_snew(_str)                 ({ char *_tmp = _str; ud_arr_tnew(ud_arr_type_char(), ud_str_len(_tmp), ud_str_dup(_tmp)); })
 
-# define ud_stra_vtrim(arr, ...)            ({ char *trim[] = {__VA_ARGS__, NULL}; ud_stra_trim(arr, trim); })
-# define ud_stra_vctrim(arr, ...)           ({ char *trim[] = {__VA_ARGS__, NULL}; ud_stra_ctrim(arr, trim); })
+# define ud_stra_ctrim(_arr, _trim)         ({ ud_arr *_new_arr = ud_arr_cpy(_arr); ud_stra_trim(_new_arr, _trim); _new_arr; })
 
-# define ud_stra_vrsplit(str, ...)   	    ({ char *sep[] = {__VA_ARGS__, NULL}; ud_stra_rsplit(str, sep); })
+# define ud_stra_vtrim(_arr, ...)           ({ char *_trim[] = {__VA_ARGS__, NULL}; ud_stra_trim(_arr, _trim); })
+# define ud_stra_vctrim(_arr, ...)          ({ char *_trim[] = {__VA_ARGS__, NULL}; ud_stra_ctrim(_arr, _trim); })
+
+# define ud_stra_vrsplit(_str, ...)   	    ({ char *sep[] = {__VA_ARGS__, NULL}; ud_stra_rsplit(_str, _sep); })
 
 # define ud_stra_join(str, sep)             ud_stra_join_ctr(str, sep, false)
 # define ud_stra_fjoin(str, sep)            ud_stra_join_ctr(str, sep, true)
@@ -30,8 +31,8 @@
 # define ud_stra_rjoin(str, sep)            ud_stra_rjoin_ctr(str, sep, false)
 # define ud_stra_rfjoin(str, sep)           ud_stra_rjoin_ctr(str, sep, true)
 
-# define ud_stra_vrjoin(str, ...)           ({ char *sep[] = {__VA_ARGS__, NULL}; ud_stra_rjoin(str, sep); })
-# define ud_stra_vrfjoin(str, ...)          ({ char *sep[] = {__VA_ARGS__, NULL}; ud_stra_rfjoin(str, sep); })
+# define ud_stra_vrjoin(_str, ...)          ({ char *_sep[] = {__VA_ARGS__, NULL}; ud_stra_rjoin(_str, _sep); })
+# define ud_stra_vrfjoin(_str, ...)         ({ char *_sep[] = {__VA_ARGS__, NULL}; ud_stra_rfjoin(_str, _sep); })
 // Structures  
 
 // Prototypes
