@@ -258,5 +258,14 @@ int main(void)
 
     // ud_arr_free(joined);
     // ud_arr_free(splitted);
+    printf("TEST CONVERTER\n");
+    ud_arr *c1 = ud_arr_set(ud_arr*, ud_stra_snew("test"), ud_stra_snew("test2"), ud_stra_snew("test3"));
+    ud_arr *c2 = ud_arr_set(ud_arr*, ud_stra_snew("test"), ud_stra_snew("test2"), ud_stra_snew("test3"));
+    ud_arr *mainc = ud_arr_set(ud_arr*, c1, c2);
+    ud_arr_print(mainc);
+    ud_stra_arr_to_char_p_arr(mainc);
+    printf("CONVERTED\n");
+    ud_arr_print(mainc);
+    ud_arr_free(mainc);
     return 0;
 }
