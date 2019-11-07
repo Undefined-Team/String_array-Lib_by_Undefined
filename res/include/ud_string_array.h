@@ -57,5 +57,6 @@ void                                        ud_stra_trim(ud_arr *arr, char **tri
 ud_arr_char_a                               *ud_stra_escape(ud_arr_char_a *str);
 ud_arr_char_a                               *ud_stra_whitespace(ud_arr_char_a *str);
 ud_bool                                     ud_stra_arr_to_char_p_arr(ud_arr *arr);
+void                                        ud_stra_arr_from_char_p_arr(ud_arr *arr);
 
 #endif

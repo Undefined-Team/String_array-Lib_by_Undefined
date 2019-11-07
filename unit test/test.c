@@ -266,6 +266,9 @@ int main(void)
     ud_stra_arr_to_char_p_arr(mainc);
     printf("CONVERTED\n");
     ud_arr_print(mainc);
+    printf("BACK\n");
+    ud_stra_arr_from_char_p_arr(mainc);
+    ud_arr_print(mainc);
     ud_arr_free(mainc);
     return 0;
 }
